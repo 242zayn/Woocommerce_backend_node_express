@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import createHttpError from "http-errors";
 import { WooCommerce } from "../utils/woocommerce";
+import { config } from "../config/config";
 
 const createProduct = async (
   req: Request,
@@ -8,9 +9,9 @@ const createProduct = async (
   next: NextFunction
 ) => {
   const testProduct = req.body;
-  console.log(testProduct);
+  // console.log(testProduct);
   const token = req.header("Authorization");
-  console.log("this is token", token);
+  // console.log("this is token", token);
   // const testProduct = {
   //   name: "Premium Gray T-Shirt by sarvesh",
   //   description: "High quality cotton t-shirt",
@@ -26,8 +27,9 @@ const createProduct = async (
 
   WooCommerce.post("products", testProduct, {
     auth: {
-      username: "ck_aa1c641e55792023f64805d0ba1893a8b81a4481",
-      password: "ck_aa1c641e55792023f64805d0ba1893a8b81a4481", // use real one
+      username: config.WOOCOMMERCE_CONSUMER_KEY,
+      password: config.WOOCOMMERCE_CONSUMER_KEY, // use real one
+      // password: "ck_aa1c641e55792023f64805d0ba1893a8b81a4481", // use real one
     },
     headers: {
       "Content-Type": "application/json",
