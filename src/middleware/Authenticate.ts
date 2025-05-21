@@ -14,7 +14,6 @@ const authenticate = (req: Request, res: Response, next: NextFunction) => {
     return next(createHttpError(401, "Authorization tokent is required."));
   }
 
-  //   console.log(parsedToken);
 
   try {
     const parsedToken = tokent.split(" ")[1];
