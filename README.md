@@ -122,5 +122,5 @@ Sarvesh Sharma
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/242zayn/Woocommerce_backend_node_express
 cd your-repo-name
